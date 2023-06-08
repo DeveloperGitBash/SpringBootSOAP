@@ -1,0 +1,100 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.java.com/xml/school/dept"
+targetNamespace="http://www.java.com/xml/school/dept" elementFormDefault="qualified">
+ 
+    <xs:element name="StudentDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="deptId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="StudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DepartmentVo" type="tns:DepartmentVo"/>
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+   
+    <xs:element name="CreateDeptRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DepartmentVo" type="tns:DepartmentVo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="CreateDeptResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DepartmentVo" type="tns:DepartmentVo"/>
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+     <xs:element name="UpdateDeptRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="UpdateDepartmentVo" type="tns:UpdateDepartmentVo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="UpdateDeptResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="UpdateUpdateDepartmentVo" type="tns:UpdateDepartmentVo"/>
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="DeleteDeptRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="deptId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="DeleteDeptResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="deletStatus" type="xs:boolean"/>
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+     <xs:complexType name="DepartmentVo">
+        <xs:sequence>
+            <xs:element name="depNane" type="xs:string"/>
+            <xs:element name="hodName" type="xs:string"/>
+            <xs:element name="hodContact" type="xs:string"/>
+            <xs:element name="students" type="tns:StudentVo" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="StudentVo">
+        <xs:sequence>
+           
+            <xs:element name="studentName" type="xs:string"/>
+         </xs:sequence>
+    </xs:complexType>
+     <xs:complexType name="UpdateDepartmentVo">
+        <xs:sequence>
+        	<xs:element name="deptId" type="xs:long"/>
+            <xs:element name="depNane" type="xs:string"/>
+            <xs:element name="hodName" type="xs:string"/>
+            <xs:element name="hodContact" type="xs:string"/>
+            <xs:element name="students" type="tns:UpdateStudentVo" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="UpdateStudentVo">
+        <xs:sequence>
+           <xs:element name="sudentId" type="xs:long"/>
+            <xs:element name="studentName" type="xs:string"/>
+         </xs:sequence>
+    </xs:complexType>
+      
+</xs:schema>
